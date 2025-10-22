@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Metronome, Play, Pause } from 'lucide-react';
+import { Clock, Play, Pause } from 'lucide-react';
 
 interface MetronomeControllerProps {
   isPlaying: boolean;
@@ -76,7 +76,7 @@ export default function MetronomeController({ isPlaying }: MetronomeControllerPr
   return (
     <div className="bg-zinc-800/50 backdrop-blur-sm rounded-2xl p-6 border border-zinc-700">
       <div className="flex items-center gap-3 mb-6">
-        <Metronome className="w-6 h-6 text-red-500" />
+        <Clock className="w-6 h-6 text-red-500" />
         <h2 className="text-2xl font-semibold">메트로놈</h2>
       </div>
 

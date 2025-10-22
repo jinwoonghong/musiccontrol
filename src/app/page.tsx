@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Music, Play, Pause, Volume2, Drum, Metronome } from 'lucide-react';
+import { Music, Play, Pause, Volume2, Drum, Clock } from 'lucide-react';
 import AudioController from '@/components/AudioController';
 import MetronomeController from '@/components/MetronomeController';
 import TrackMixer from '@/components/TrackMixer';
