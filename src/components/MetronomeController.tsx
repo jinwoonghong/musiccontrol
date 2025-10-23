@@ -10,7 +10,7 @@ interface MetronomeControllerProps {
 export default function MetronomeController({ isPlaying }: MetronomeControllerProps) {
   const [bpm, setBpm] = useState(120);
   const [volume, setVolume] = useState(50);
-  const [isMetronomeOn, setIsMetronomeOn] = useState(false);
+  const [isMetronomeOn, setIsMetronomeOn] = useState(true); // 기본적으로 켜짐
   const [timeSignature, setTimeSignature] = useState('4/4');
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -95,7 +95,7 @@ export default function MetronomeController({ isPlaying }: MetronomeControllerPr
             {isMetronomeOn ? (
               <>
                 <Pause className="w-4 h-4" />
-                메트로놈 켜짐
+                메트로놈 자동 실행 중
               </>
             ) : (
               <>
@@ -104,6 +104,14 @@ export default function MetronomeController({ isPlaying }: MetronomeControllerPr
               </>
             )}
           </button>
+        </div>
+        
+        <div className="text-center text-zinc-400 text-sm">
+          {isPlaying ? (
+            isMetronomeOn ? "음악과 함께 메트로놈이 자동으로 실행됩니다" : "메트로놈이 꺼져 있습니다"
+          ) : (
+            "음악을 재생하면 메트로놈이 자동으로 시작됩니다"
+          )}
         </div>
 
         {/* BPM Control */}
@@ -176,11 +184,7 @@ export default function MetronomeController({ isPlaying }: MetronomeControllerPr
           />
         </div>
 
-        {!isPlaying && (
-          <div className="text-center text-zinc-400 text-sm">
-            음원을 재생해야 메트로놈을 사용할 수 있습니다
-          </div>
-        )}
+
       </div>
 
       <style jsx>{`
